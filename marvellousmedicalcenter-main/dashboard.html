@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="static/styles.css"> <!-- Link your CSS file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+
+    <style>
+
+        
+    .logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+    --primary-color: #007bff;
+    --primary-color-dark: #0056b3;
+    --primary-color-light: #e9f7ff;
+    --secondary-color: #ff5722;
+    --text-dark: #212529;
+    --text-light: #6c757d;
+    --white: #ffffff;
+    --max-width: 1200px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+    animation: slide-in-left 0.5s ease-out forwards;
+}
+
+.section__header {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    white-space: nowrap;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    background-image: url("static/login.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 450px;
+}
+
+.header__container {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 1rem;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+}
+
+.nav__container {
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(238, 235, 235, 0.048);
+}
+
+.nav__logo {
+font-size: 50px;
+font-weight: 600;
+color: orangered; /* Inner text color */
+text-shadow: 
+  -1px -1px 0 #000,   /* Top left shadow */
+  1px -1px 0 #000,    /* Top right shadow */
+  -1px 1px 0 #000,    /* Bottom left shadow */
+  1px 1px 0 #000;     /* Bottom right shadow */
+}
+
+
+.nav__logo span {
+    color: var(--secondary-color);
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: bottom;
+}
+
+.link a {
+    padding: 0.5rem;
+    color: var(--primary-color-dark);
+}
+
+.link a:hover {
+    color: var(--black);
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    animation: slide-in-left 0.5s ease-out forwards;
+}
+
+.header__container h1 {
+    margin-bottom: 1rem;
+    max-width: 800px;
+    font-size: 3.5rem;
+    line-height: 4rem;
+    color: var(--white);
+}
+
+.header__container p {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    color: var(--primary-color-light);
+}
+
+body, h1, h2, h3, p, table, th, td, form, select, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Header Styles */
+header {
+    background-color: #001ea3; /* Green background */
+    color: white; /* White text */
+    padding: 20px 0;
+    text-align: center;
+    position: relative; /* For the overlay */
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem; /* Larger title */
+}
+
+/* User Information Section */
+.user-info {
+    background: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #25327a;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Form Styles */
+form {
+    display: inline-block;
+}
+
+select {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s; /* Transition for border color */
+}
+
+select:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+}
+
+/* Button Styles */
+button {
+    background-color: #09290b; /* Green background */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #ff7300; /* Darker green on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Appointment Form Styles */
+.header__form {
+    display: none; /* Initially hidden */
+    background: #b1b1b1;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Smooth appearance */
+    color:#000;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: red;
+    cursor: pointer;
+    float: right;
+}
+
+/* Specialty Section */
+.specialty-section {
+    background: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-open {
+    background-color: #040c05; /* Green background */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn-open:hover {
+    background-color: #00ff0d; /* Darker green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-info, .specialty-section, .header__form {
+        margin: 10px; /* Less margin on smaller screens */
+        padding: 15px; /* Less padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem; /* Smaller title */
+    }
+
+    button {
+        padding: 8px 12px; /* Smaller buttons on mobile */
+    }
+
+    table {
+        font-size: 0.9rem; /* Smaller font for tables */
+    }
+}
+
+/* Additional Styles */
+/* Appointment Form Styles */
+.header__form {
+    display: none; /* Initially hidden */
+    background: #f5cfcf;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    transition: all 0.3s ease; /* Smooth transition for opening */
+}
+
+.header__form h4 {
+    font-size: 1.8rem; /* Increased font size for the title */
+    font-weight: 600; /* Semi-bold */
+    color: #000000; /* Green color for the title */
+    margin-bottom: 1.5rem; /* Spacing below title */
+}
+
+.header__form input,
+.header__form select {
+    padding: 10px; /* More padding for better usability */
+    border-radius: 5px; /* Slightly more rounded corners */
+    border: 1px solid #ccc; /* Subtle border */
+    font-size: 1rem; /* Consistent font size */
+    margin-bottom: 15px; /* Space between inputs */
+    width: calc(100% - 20px); /* Full width with padding consideration */
+    transition: border 0.3s ease; /* Transition for border color */
+}
+
+.header__form input:focus,
+.header__form select:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle glow effect */
+}
+
+.form__btn {
+    background-color: #4c63af; /* Green background */
+    color: white; /* White text */
+    padding: 10px 15px; /* Padding for button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Slightly more rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1rem; /* Consistent font size */
+    transition: background-color 0.3s ease; /* Transition for background color */
+    width: 100%; /* Full width */
+}
+
+.form__btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.close-btn {
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 20px; /* Larger close button */
+    color: #f44336; /* Red color */
+    cursor: pointer; /* Pointer cursor */
+    float: right; /* Align to the right */
+    margin-top: -10px; /* Adjust positioning */
+    margin-bottom: 10px; /* Spacing below */
+}
+.footer {
+        background-color: var(--primary-color-light);
+      }
+      
+      .footer__container {
+        display: grid;
+        grid-template-columns: 400px repeat(3, 1fr);
+        gap: 2rem;
+      }
+      
+      .footer__col h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+      
+      .footer__col h3 span {
+        color: var(--secondary-color);
+      }
+      
+      .footer__col h4 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+      
+      .footer__col p {
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      .footer__col p:hover {
+        color: var(--primary-color);
+      }
+      
+      .footer__col i {
+        color: var(--primary-color);
+      }
+      
+      .footer__bar {
+        background-color: var(--primary-color);
+      }
+      
+      .footer__bar__content {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      
+      .footer__bar__content p {
+        font-size: 0.8rem;
+        color: var(--white);
+      }
+      
+      .footer__socials {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1rem;
+        color: var(--white);
+        cursor: pointer;
+      }
+      .nav__buttons {
+    position: relative; /* Position relative for the absolute child */
+}
+
+.btn-logout {
+    background: transparent;
+    border: none;
+    color: #000000; /* Change this to your desired color */
+    cursor: pointer;
+    display: flex; /* Use flex to align icon and text */
+    align-items: center;
+    font-size: 26px; /* Adjust as necessary */
+    padding: 10px;
+}
+
+.btn-logout .logout-text {
+    display: none; /* Initially hide the text */
+    margin-left: 5px; /* Space between icon and text */
+}
+
+.btn-logout:hover .logout-text {
+    display: inline; /* Show text on hover */
+}
+
+.btn-logout:hover {
+    color: #ff5722; /* Change color on hover (optional) */
+}
+.header__form{
+    background-color: #9e9fa0;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="logo">
+                <img src="static/Marvellous Medical Center_Logo.jpg" alt="Company Logo" />
+            </div>
+            <div class="nav__logo">
+                MARVELLOUS<span> MEDICAL CENTER </span>
+            </div>
+            <div class="nav__buttons"> <!-- Container for navigation buttons -->
+                <form action="/" method="POST" style="display: inline;">
+                    <button type="submit" class="btn-logout">
+                        <i class="ri-logout-circle-line"></i> <!-- Replace with your icon -->
+                        <span class="logout-text">Logout</span>
+                    </button>
+                </form>
+            </div>
+        </nav>
+    
+        <br /><br />
+    </header>
+    <div class="menu">
+        <a href="/#home">Home</a>
+    </div>
+    
+
+    <div class="user-info">
+        <h2>User Information</h2>
+        <p><strong>System ID:</strong> {{ user.id }}</p>
+        <p><strong>First Name:</strong> {{ user.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+        <p><strong>Phone Number:</strong> {{ user.phone }}</p>
+        <p><strong>Email ID:</strong> {{ user.email }}</p>
+        <p><strong>Address:</strong> {{ user.address }}</p>
+    </div>
+
+    <h2>Your Bookings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Booking Type</th>
+                <th>Action</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.appointment_date }}</td>
+                <td>{{ booking.appointment_time }}</td>
+                <td>{{ booking.booking_type }}</td>
+                <td>{{ booking.action }}</td>
+                <td>
+                    <form action="{{ url_for('delete_booking', booking_id=booking.id) }}" method="POST">
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete this booking?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Specialty Sections -->
+    <div class="specialty-section">
+        <button class="btn-open" onclick="openForm('appointment-form')">Book Appointment</button>
+    </div>
+
+    <!-- Appointment Form -->
+    <div class="header__form" id="appointment-form">
+        <button class="close-btn" onclick="closeForm('appointment-form')">✖</button>
+        <form action="{{ url_for('book_appointment') }}" method="POST">
+            <h4>Book Appointment</h4>
+            <input type="text" name="first_name" placeholder="First Name" required />
+            <input type="text" name="last_name" placeholder="Last Name" required />
+            <input type="text" name="address" placeholder="Address" required />
+            <input type="tel" name="phone" placeholder="Phone Number" required />
+            <input type="email" name="email" placeholder="Email ID" required />
+            <label for="appointment_specialty">Select Specialty:</label>
+            <select id="appointment_specialty" name="specialty" required>
+                <option value="" disabled selected>Select Specialty</option>
+                <option value="dentistry">Dentistry</option>
+                <option value="general_practitioner">General Practitioner</option>
+            </select>
+            <label for="booking_type">Booking Type</label>
+            <select name="booking_type" id="booking_type" required>
+                <option value="appointment">Appointment</option>
+                <option value="checkup">Checkup</option>
+            </select>
+            <label for="appointment_date">Choose Date:</label>
+            <input type="date" id="appointment_date" name="appointment_date" required />
+            <label for="appointment_time">Choose Time Slot:</label>
+            <select id="appointment_time" name="appointment_time" required>
+                <option value="" disabled selected>Select Time Slot</option>
+                <!-- Add options for time slots here -->
+            </select>
+            <button class="btn form__btn" type="submit">Book Appointment</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+          <div class="footer__col">
+            <h3>Marvellous <span>Medical Center</span></h3>
+            <p>
+              We are honored to be a part of your healthcare journey and committed
+              to delivering compassionate, personalized, and top-notch care every
+              step of the way.
+            </p>
+            <p>
+              Trust us with your health, and let us work together to achieve the
+              best possible outcomes for you and your loved ones.
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>About Us</h4>
+            <p><a href="#home">Home</a></p>
+            <p><a href="#about">About Us</a></p>
+            <p><a href='/contact#terms'>Terms & Conditions</a></p>
+          </div>
+          <div class="footer__col">
+            <h4>Services</h4>
+            <p><a href="#home">Home</a></p>
+            <p><a href="/dental">Dental</a></p>
+            <p><a href='/general'>General Practitioner</a></p>
+          </div>
+          <div class="footer__col">
+            <h4>Contact Us</h4>
+            <p>
+              <i class="ri-map-pin-2-fill"></i> FLAT No: 103, SOUQ AL ROLLA BUILDING, 
+              OPPOSITE K M TRADING CENTRE, ROLLA, SHARJAH, P.O. BOX No: 65511
+            </p>
+            <p>
+              <i class="ri-mail-fill"></i> 
+              <a href="mailto:marvellousmedicalcenter@gmail.com">marvellousmedicalcenter@gmail.com</a>
+            </p>
+            <p>
+              <i class="ri-whatsapp-fill"></i> 
+              <a href="https://wa.me/971505662765" target="_blank">+971 50 566 2765</a>
+            </p>
+            <p>
+              <i class="ri-phone-fill"></i> 
+              <a href="tel:+97165614266">065614266</a>
+            </p>
+          </div>
+        </div>
+        <div class="footer__bar">
+          <div class="footer__bar__content">
+            <p>Copyright © 2024 Marvellous Medical Center TR. All rights reserved.</p>
+            <div class="footer__socials">
+              <span><i class="ri-instagram-line"></i></span>
+              <span><i class="ri-facebook-fill"></i></span>
+              <span><i class="ri-heart-fill"></i></span>
+              <span><i class="ri-twitter-fill"></i></span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script>
+        function openForm(formId) {
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        function closeForm(formId) {
+            document.getElementById(formId).style.display = 'none';
+        }
+
+        function populateTimeSlots() {
+        const timeSlotSelect = document.getElementById('appointment_time');
+        timeSlotSelect.innerHTML = '<option value="" disabled selected>Select Time Slot</option>'; // Reset the dropdown
+
+        let startTime = 9; // Start at 9 AM
+        let endTime = 22; // End at 10 PM (22:00)
+
+        for (let hour = startTime; hour < endTime; hour++) {
+            // Format hours to 12-hour format (with AM/PM)
+            let timeSlot = formatTime(hour) + " - " + formatTime(hour + 1);
+            let option = document.createElement("option");
+            option.value = formatTime24(hour); // Value in 24-hour format
+            option.text = timeSlot; // Display in 12-hour format
+            timeSlotSelect.appendChild(option);
+        }
+    }
+
+    // Helper function to format time to 12-hour AM/PM format
+    function formatTime(hour) {
+        let suffix = hour >= 12 ? "PM" : "AM";
+        let formattedHour = ((hour + 11) % 12 + 1); // Convert 24-hour to 12-hour format
+        return formattedHour + ":00 " + suffix;
+    }
+
+    // Helper function to format time to 24-hour format (for value)
+    function formatTime24(hour) {
+        return hour.toString().padStart(2, '0') + ":00";
+    }
+
+    // Call the function to populate the time slots
+    window.onload = populateTimeSlots;
+
+
+    
+    </script>
+</body>
+</html>

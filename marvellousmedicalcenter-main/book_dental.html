@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+            font-size: 1.75rem;
+            color: #333;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            section {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Booking System</h1>
+    </header>
+
+    <!-- If the user is logged in, display their info -->
+    {% if user %}
+    <section>
+        <h3>Welcome, {{ user.username }}</h3>
+        <p>Your email: {{ user.email }}</p>
+    </section>
+    {% endif %}
+
+    <!-- Booking a checkup for Dentistry -->
+    <section>
+        <h2>Book a Checkup for Dentistry</h2>
+        <form>
+            <label for="dentistry_doctor">Select Doctor:</label>
+            <select id="dentistry_doctor" name="doctor" required>
+                <option value="" disabled selected>Select Doctor</option>
+                <!-- Doctor options for Dentistry -->
+                <option value="Dr. Smith">Dr. Smith</option>
+                <option value="Dr. Johnson">Dr. Johnson</option>
+            </select>
+
+            <label for="dentistry_date">Date:</label>
+            <input type="date" id="dentistry_date" name="appointment_date" required>
+
+            <label for="dentistry_time">Time:</label>
+            <input type="time" id="dentistry_time" name="appointment_time" required>
+
+            <button type="submit">Book Checkup</button>
+        </form>
+    </section>
+
+    <!-- Booking an appointment for General Practitioner -->
+    <section>
+        <h2>Book an Appointment with a General Practitioner</h2>
+        <form>
+            <label for="gp_doctor">Select Doctor:</label>
+            <select id="gp_doctor" name="doctor" required>
+                <option value="" disabled selected>Select Doctor</option>
+                <!-- Doctor options for General Practitioner -->
+                <option value="Dr. Brown">Dr. Brown</option>
+                <option value="Dr. Williams">Dr. Williams</option>
+            </select>
+
+            <label for="gp_date">Date:</label>
+            <input type="date" id="gp_date" name="appointment_date" required>
+
+            <label for="gp_time">Time:</label>
+            <input type="time" id="gp_time" name="appointment_time" required>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Marvellous Medical Center</p>
+    </footer>
+
+    <script>
+        // Example unavailable times (would be dynamically generated in a real application)
+        const unavailableTimes = {
+            '2024-10-07': ['09:00', '10:00'], // Booked times for that date
+            '2024-10-08': ['11:00', '14:00']
+        };
+
+        // Event listener for both Dentistry and GP dates
+        function checkUnavailableTimes(dateInput, timeInputId) {
+            const selectedDate = dateInput.value;
+            const timeInput = document.getElementById(timeInputId);
+            
+            // Reset to enable all times
+            timeInput.classList.remove('unavailable');
+            timeInput.disabled = false;
+
+            // Check if the date has unavailable times
+            if (unavailableTimes[selectedDate]) {
+                const selectedTime = timeInput.value;
+                if (unavailableTimes[selectedDate].includes(selectedTime)) {
+                    timeInput.classList.add('unavailable');
+                    timeInput.disabled = true;
+                }
+            }
+        }
+
+        // Check times for Dentistry
+        document.getElementById('dentistry_date').addEventListener('change', function() {
+            checkUnavailableTimes(this, 'dentistry_time');
+        });
+
+        // Check times for General Practitioner
+        document.getElementById('gp_date').addEventListener('change', function() {
+            checkUnavailableTimes(this, 'gp_time');
+        });
+    </script>
+</body>
+</html>

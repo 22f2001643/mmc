@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Marvellous Medical Center</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #ff5722;
+            --dark-color: #212529;
+            --light-color: #6c757d;
+            --background-light: #f4f4f4;
+            --white: #ffffff;
+            --max-width: 1200px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+        }
+
+        header {
+            background: url("static/contact-us.jpg") center center/cover no-repeat;
+            position: relative;
+            height: 400px;
+            color: var(--white);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .header__container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            font-size: 50px;
+            font-weight: 600;
+            color: orangered;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+
+        .nav__logo span {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e64a19;
+        }
+
+        section {
+            padding: 2rem 1rem;
+        }
+
+        .section__container {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 2rem 1rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #fafafa;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header__container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav__logo {
+                margin-bottom: 1rem;
+            }
+
+            .btn {
+                margin-top: 1rem;
+            }
+        }
+        .logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .menu-container {
+        position: relative; /* Positioning context for absolute children */
+    }
+    
+    .menu-button {
+        background-color: #ff4800; /* Button background color */
+        color: white; /* Text color */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Padding */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor */
+    }
+    
+    .menu {
+        display: none; /* Hidden by default */
+        position: absolute; /* Position it below the button */
+        top: 50px; /* Adjust as needed */
+        left: 0; /* Align to the left */
+        background-color: white; /* Background color for menu */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        padding: 10px; /* Padding around menu items */
+        border-radius: 5px; /* Rounded corners */
+        width:150px;
+    }
+    
+    .menu a {
+        display: inline-block; /* Display items inline */
+        margin: 0 15px; /* Space between items */
+        text-decoration: none; /* Remove underline */
+        color: #0f8300; /* Link color */
+        font-weight: bold; /* Bold text */
+    }
+    
+    .menu a:hover {
+        color: #09ff00; /* Darker shade on hover */
+    }
+    </style>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+    <script type="text/javascript">
+        // Initialize EmailJS with your user ID
+        emailjs.init('y_IzpUHHQPR7Wmd8A');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="header__container">
+            <div class="logo">
+                <img src="static/Marvellous Medical Center_Logo.jpg" alt="Company Logo">
+            </div>
+            <div class="menu-container">
+                <button class="menu-button" onclick="toggleMenu()">Menu</button>
+                <div class="menu" id="menu">
+                    <a href="/#home">Home</a>
+                    <a href="/#about">About Us</a>
+                    <a href="/#services">Services</a>
+                </div>
+            </div>
+            <div class="nav__logo">
+                MARVELLOUS<span> MEDICAL CENTER</span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="contact" class="section__container">
+        <h2>Contact Us</h2>
+        <p>We’re here to help! Feel free to get in touch with us.</p>
+        
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Get in Touch</button>
+            </div>
+        </form>
+
+        <div id="form-status"></div>
+
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><strong>Address:</strong> FLAT No: 103, SOUQ AL ROLLA BUILDING,<br> OPPOSITE K M TRADING CENTRE, ROLLA, SHARJAH, P.O. BOX No: 65511</p>
+            <p><strong>Clinic Timing:</strong> 9 AM to 10 PM</p>
+            <p><strong>Landline:</strong> 065614266</p>
+            <p><strong>Mobile:</strong> +971 50 566 2765</p>
+            <p><strong>Email:</strong> <a href="mailto:marvellousmedicalcenter@gmail.com">marvellousmedicalcenter@gmail.com</a></p>
+            <p><strong>Website:</strong> <a href="http://www.marvellousmedical.ae" target="_blank">www.marvellousmedical.ae</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Marvellous Medical Center. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevent default form submission
+    
+    // Log form values
+    console.log({
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+    });
+
+    // Send the email using EmailJS
+    emailjs.sendForm('service_6fn39zs', 'template_p1fnl7r', this)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            document.getElementById('form-status').innerText = 'Your message has been sent!';
+            document.getElementById('contactForm').reset(); // Reset the form after submission
+        }, function(error) {
+            console.error('FAILED...', error);
+            document.getElementById('form-status').innerText = 'Failed to send message. Please try again later.';
+        });
+});
+
+function toggleMenu() {
+        const menu = document.getElementById('menu');
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block'; // Show the menu
+        } else {
+            menu.style.display = 'none'; // Hide the menu
+        }
+    }
+    
+    // Close the menu when clicking outside
+    window.onclick = function(event) {
+        const menu = document.getElementById('menu');
+        if (!event.target.matches('.menu-button') && menu.style.display === 'block') {
+            menu.style.display = 'none';
+        }
+    }
+
+    </script>
+</body>
+</html>

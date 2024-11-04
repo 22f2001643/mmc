@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Services - Marvellous Medical Center</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+    :root {
+        --primary-color: #007bff;
+        --primary-color-dark: #0056b3;
+        --primary-color-light: #e9f7ff;
+        --secondary-color: #ff5722;
+        --text-dark: #212529;
+        --text-light: #6c757d;
+        --white: #ffffff;
+        --max-width: 1200px;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .section__container {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 5rem 1rem;
+        animation: slide-in-left 0.5s ease-out forwards;
+    }
+
+    .section__header {
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        animation: slide-in-right 0.5s ease-out forwards;
+    }
+
+    .btn {
+        padding: 0.75rem 2rem;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        white-space: nowrap;
+        color: var(--white);
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+        display: flex;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    html,
+    body {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+    }
+
+    header {
+        background-image: url("static/doc.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        height: 500px;
+    }
+
+    .header__container {
+        position: relative;
+        z-index: 1;
+        padding: 5rem 1rem;
+    }
+
+    header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 0;
+    }
+
+    .nav__container {
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .nav__logo {
+    font-size: 50px;
+    font-weight: 600;
+    color: orangered; /* Inner text color */
+    text-shadow: 
+      -1px -1px 0 #000,   /* Top left shadow */
+      1px -1px 0 #000,    /* Top right shadow */
+      -1px 1px 0 #000,    /* Bottom left shadow */
+      1px 1px 0 #000;     /* Bottom right shadow */
+}
+
+
+    .nav__logo span {
+        color: var(--secondary-color);
+    }
+
+    .nav__links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        position: bottom;
+    }
+
+    .link a {
+        padding: 0.5rem;
+        color: var(--primary-color-dark);
+    }
+
+    .link a:hover {
+        color: var(--black);
+    }
+
+    .header__container {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        animation: slide-in-left 0.5s ease-out forwards;
+    }
+
+    .header__container h1 {
+        margin-bottom: 1rem;
+        max-width: 800px;
+        font-size: 3.5rem;
+        line-height: 4rem;
+        color: var(--white);
+    }
+
+    .header__container p {
+        margin-bottom: 2rem;
+        max-width: 600px;
+        color: var(--primary-color-light);
+    }
+
+    .header__form {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .header__form form {
+        display: grid;
+        gap: 1rem;
+        padding: 2rem;
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .header__form input {
+        padding: 1rem;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        color: var(--primary-color);
+        background-color: var(--primary-color-light);
+        border-radius: 5px;
+    }
+
+    .header__form input::placeholder {
+        color: var(--primary-color);
+    }
+
+    .form__btn {
+        background-color: var(--primary-color);
+        transition: 0.3s;
+    }
+
+    .form__btn:hover {
+        background-color: var(--primary-color-dark);
+    }
+
+    .header__form h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .content__section {
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .section__header {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .services__grid,
+    .video__grid {
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0;
+        flex-wrap: wrap; /* Allow wrapping */
+    }
+    .services__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Adjust space between items */
+        margin: 20px 0; /* Space above and below the grid */
+    }
+    
+    .service {
+        background: white; /* Background color for service cards */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        padding: 20px; /* Inner padding */
+        margin: 10px; /* Space between service cards */
+        width: calc(30% - 20px); /* Adjust width for three items per row */
+        text-align: center; /* Center text */
+        border: 2px solid #000;
+    }
+    
+    .service-image {
+        width: 100%; /* Full width of the container */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 5px; /* Rounded corners for images */
+    }
+    
+
+    .service,
+    .video {
+        width: 30%;
+        margin: 1rem 0; /* Add some margin for spacing */
+    }
+
+    .video iframe {
+        width: 100%;
+        height: 200px;
+    }
+
+    .btn:hover {
+        background-color: lightgray; /* Change background on hover */
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border: 2px solid #000;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .specialist__section {
+        padding: 2rem 1rem;
+        text-align: center;
+        background-color: var(--primary-color-light);
+    }
+    
+    .specialist__container {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        width:200px;
+        height:200px;
+    }
+    
+    .specialist__image img {
+        width: 150px; /* Adjust the size as needed */
+        border-radius: 10%;
+        margin-bottom: 1rem; /* Space between image and icons */
+    }
+    
+    .social__links {
+        display: flex;
+        gap: 1rem; /* Space between icons */
+    }
+    
+    .social-icon {
+        width: 40px; /* Size of the social icons */
+        height: 40px;
+    }
+    .doctor-container {
+        background-image: url("static/middle.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+        border-radius: 10px; /* Rounded corners */
+        padding: 20px; /* Inner padding */
+    }
+    .doctor-card {
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 50px;
+        width: calc(24% - 20px); /* Four cards per row */
+        text-align: center;
+        border: 2px solid #000; /* Border color */
+    }
+    .doctor-card img {
+        width: 100%;
+        border-radius: 10px;
+        height: auto;
+    }
+    .doctor-card:hover {
+        transform: translateY(-5px); /* Lift the card up slightly */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+        background-color:#7FFFD4;
+    }
+    .social-icons {
+        margin: 10px 0;
+    }
+    .social-icons a {
+        margin: 0 10px;
+        color: #333;
+        text-decoration: none;
+        font-size: 24px; /* Adjust icon size */
+    }
+    .availability {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    .appointment-buttons {
+        margin-top: 15px;
+    }
+    .appointment-buttons button {
+        background-color: #007bff; /* Button color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        margin: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .appointment-buttons button:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+    }
+    .footer {
+        background-color: var(--primary-color-light);
+      }
+      
+      .footer__container {
+        display: grid;
+        grid-template-columns: 400px repeat(3, 1fr);
+        gap: 2rem;
+      }
+      
+      .footer__col h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+      
+      .footer__col h3 span {
+        color: var(--secondary-color);
+      }
+      
+      .footer__col h4 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+      
+      .footer__col p {
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      .footer__col p:hover {
+        color: var(--primary-color);
+      }
+      
+      .footer__col i {
+        color: var(--primary-color);
+      }
+      
+      .footer__bar {
+        background-color: var(--primary-color);
+      }
+      
+      .footer__bar__content {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      
+      .footer__bar__content p {
+        font-size: 0.8rem;
+        color: var(--white);
+      }
+      
+      .footer__socials {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1rem;
+        color: var(--white);
+        cursor: pointer;
+      }
+      .menu-container {
+        position: relative; /* Positioning context for absolute children */
+    }
+    
+    .menu-button {
+        background-color: #007bff; /* Button background color */
+        color: white; /* Text color */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Padding */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor */
+    }
+    
+    .menu {
+        display: none; /* Hidden by default */
+        position: absolute; /* Position it below the button */
+        top: 50px; /* Adjust as needed */
+        left: 0; /* Align to the left */
+        background-color: white; /* Background color for menu */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        padding: 10px; /* Padding around menu items */
+        border-radius: 5px; /* Rounded corners */
+        width:150px;
+    }
+    
+    .menu a {
+        display: inline-block; /* Display items inline */
+        margin: 0 15px; /* Space between items */
+        text-decoration: none; /* Remove underline */
+        color: #007bff; /* Link color */
+        font-weight: bold; /* Bold text */
+    }
+    
+    .menu a:hover {
+        color: #0056b3; /* Darker shade on hover */
+    }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-30px);
+        }
+        60% {
+            transform: translateY(-15px);
+        }
+    }
+      
+    
+</style>
+<body>
+
+<header>
+    <nav class="section__container nav__container">
+        <div class="logo">
+            <img src="static/Marvellous Medical Center_Logo.jpg" alt="Company Logo">
+        </div>
+        <div class="nav__logo">
+            MARVELLOUS<span> MEDICAL CENTER </span>
+        </div>
+    </nav>
+    <br><br>
+
+    <div class="section__container header__container" id="home">
+        <div class="header__content">
+            <div class="menu-container">
+                <button class="menu-button" onclick="toggleMenu()">Menu</button>
+                <div class="menu" id="menu">
+                    <a href="/#home">Home</a>
+                    <a href="/#about">About Us</a>
+                    <a href="/contact">Contact Us</a>
+                    <a href="#services">Services</a>
+                    <a href="#doctors">Our Doctors</a>
+                </div>
+            </div>
+        </div>
+        <div class="header__form" id="checkup-form" style="display: none;">
+            <button class="close-btn" onclick="closeForm('checkup-form')">✖</button>
+            <form>
+                <h4>Book Check-up</h4>
+                <input type="text" placeholder="First Name" />
+                <input type="text" placeholder="Last Name" />
+                <input type="text" placeholder="Address" />
+                <input type="text" placeholder="Phone No." />
+                <button class="btn form__btn">Book Check-up</button>
+                <button class="btn btn_success">Login</button>
+            </form>
+        </div>
+
+        <div class="header__form" id="appointment-form" style="display: none;">
+            <button class="close-btn" onclick="closeForm('appointment-form')">✖</button>
+            <form>
+                <h4>Book Appointment</h4>
+                <input type="text" placeholder="First Name" />
+                <input type="text" placeholder="Last Name" />
+                <input type="text" placeholder="Address" />
+                <input type="text" placeholder="Phone No." />
+                <button class="btn form__btn">Book Appointment</button>
+                <button class="btn btn_success">Login</button>
+            </form>
+        </div>
+    </div>
+
+</header>
+
+<section class="content__section" id="services">
+    <h2 class="section__header">Our General Medicine Services</h2>
+    <div class="services__grid">
+        <div class="service">
+            <img src="static/Full-body-checkup.jpg" alt="Service 1" class="service-image">
+            <h3>GENERAL HEALTH CHECK-UP</h3>
+            <p>A comprehensive evaluation of your overall health, including physical examinations, blood tests, and vital sign assessments. This check-up helps in early detection of potential health issues and promotes preventive care for a healthier lifestyle.</p>
+        </div>
+        <div class="service">
+            <img src="static/cardio.webp" alt="Service 2" class="service-image">
+            <h3>CARDIOVASCULAR DISEASES</h3>
+            <p>Cardiovascular diseases encompass a range of conditions affecting the heart and blood vessels, including heart disease, hypertension, and stroke. Regular screenings and consultations can help identify risk factors early, enabling effective management and prevention strategies for better heart health.</p>
+        </div>
+        <div class="service">
+            <img src="static/liver.jpg" alt="Service 3" class="service-image">
+            <h3>Liver Diseases / Kidney Diseases</h3>
+            <p>Liver and kidney diseases can significantly impact overall health, affecting the body’s ability to filter toxins and manage essential functions. Conditions such as hepatitis, cirrhosis, and chronic kidney disease may be asymptomatic in early stages.</p>
+        </div>
+        <div class="service">
+            <img src="static/diabetes.jpg" alt="Service 4" class="service-image">
+            <h3>DIABETES/ HYPERTENSION/ DYSLIPIDEMIA</h3>
+            <p>A diabetes checkup involves monitoring blood sugar levels and assessing overall health to manage diabetes effectively. It helps identify potential complications early and tailor treatment plans for better health outcomes.</p>
+        </div>
+        <div class="service">
+            <img src="static/hqdefault.jpg" alt="Service 5" class="service-image">
+            <h3>EYE, EAR, NOSE & THROAT INFECTIONS</h3>
+            <p>
+                Eye, ear, nose, and throat infections can cause symptoms like pain, swelling, and inflammation in these areas. Prompt diagnosis and treatment are essential to prevent complications and promote recovery.</p>
+        </div>
+        <div class="service">
+            <img src="static/skin.avif" alt="Service 6" class="service-image">
+            <h3>SKIN DISEASE</h3>
+            <p>Skin diseases encompass a wide range of conditions, including infections, rashes, and chronic disorders like eczema and psoriasis. Proper diagnosis and treatment are crucial for managing symptoms and improving skin health.</p>
+        </div>
+        <div class="service">
+            <img src="static/THYROID.jpg" alt="Service 7" class="service-image">
+            <h3>THYROID DISEASE</h3>
+            <p>Thyroid disease affects hormone production, leading to conditions like hypothyroidism or hyperthyroidism. Monitoring and treatment are essential for maintaining metabolic balance and overall well-being.</p>
+        </div>
+        <div class="service">
+            <img src="static/Endocrinology.jpg" alt="Service 8" class="service-image">
+            <h3>ENDOCRINOLOGY</h3>
+            <p>Endocrinology focuses on hormone-related disorders, including diabetes, thyroid issues, and adrenal conditions. Specialists work to diagnose and manage hormonal imbalances for optimal health.</p>
+        </div>
+        <div class="service">
+            <img src="static/ARTH.jpg" alt="Service 9" class="service-image">
+            <h3>ARTHRITIS</h3>
+            <p>Arthritis includes conditions like osteoarthritis and rheumatoid arthritis, leading to joint pain and inflammation. Comprehensive pain management strategies are essential for enhancing mobility and quality of life.</p>
+        </div>
+        <div class="service">
+            <img src="static/PILES.jpg" alt="Service 10" class="service-image">
+            <h3>PILES,FISSURES,HEMORRHOIDS</h3>
+            <p>Piles, fissures, and hemorrhoids cause discomfort and bleeding in the anal area, often requiring lifestyle changes and medical treatment. Effective management helps alleviate symptoms and improve quality of life.</p>
+        </div>
+        <div class="service">
+            <img src="static/BURN.webp" alt="Service 11" class="service-image">
+            <h3>MINOR INJURY AND FIRST, SECOND DEGREE BURNS MANAGEMENT</h3>
+            <p>Management of minor injuries and burns involves assessing and treating wounds to prevent infection and promote healing. Proper care ensures comfort and minimizes complications.</p>
+        </div>
+        <div class="service">
+            <img src="static/RESP.jpg" alt="Service 12" class="service-image">
+            <h3>ALLERGY,ASTHMA AND OTHER RESPIRATORY DISEASES</h3>
+            <p>Allergy, asthma, and respiratory diseases involve immune responses and airway inflammation, causing symptoms like wheezing and difficulty breathing. Comprehensive care and management are vital for improving quality of life.</p>
+        </div>
+        <div class="service">
+            <img src="static/SEX.jpeg" alt="Service 13" class="service-image">
+            <h3>SEXUAL HEALTH</h3>
+            <p>Sexual health encompasses a range of issues, including sexual function, sexually transmitted infections, and reproductive health. Education and access to care are key for maintaining healthy sexual well-being.</p>
+        </div>
+        <div class="service">
+            <img src="static/LAB.jpg" alt="Service 14" class="service-image">
+            <h3>LABORATORY SERVICES</h3>
+            <p>Laboratory services provide essential diagnostic testing, including blood work, urine tests, and imaging. These tests aid in the accurate diagnosis and monitoring of various health conditions.</p>
+        </div>
+    </div>
+</section>
+
+<section class="specialist__section" id="doctors">
+    <h2 class="section__header">OUR GENERAL PRACTITIONERS</h2>
+    <div class="doctor-container">
+        <div class="doctor-card">
+            <img src="static/abdul.jpeg" alt="Doctor 1">
+            <h3>Dr. Abdul Hameed</h3>
+            <p>M.B.B.S. GENERAL PRACTITIONER</p>
+            <div class="availability">Available: 9 AM - 10 PM</div>
+            <div class="appointment-buttons">
+                <button onclick="window.location.href='/#book-check-btn'">Book General Appointment</button>
+            </div>
+            <p>Please Signup or Login to Book Appointment</p>
+        </div>
+        <!-- Repeat the above block for additional doctors -->
+        <div class="doctor-card">
+            <img src="static/sabeen.jpeg" alt="Doctor 2">
+            <h3>Dr. Sabeen Shafique</h3>
+            <p>M.B.B.S. GENERAL PRACTITIONER</p>
+            <div class="availability">Available: 9 AM - 10 PM</div>
+            <div class="appointment-buttons">
+                <button onclick="window.location.href='/#book-check-btn'">Book General Appointment</button>
+            </div>
+            <p>Please Signup or Login to Book Appointment</p>
+        </div>
+        
+    </div>
+    
+</section>
+<footer class="footer">
+    <div class="section__container footer__container">
+      <div class="footer__col">
+        <h3>Marvellous <span>Medical Center</span></h3>
+        <p>
+          We are honored to be a part of your healthcare journey and committed
+          to delivering compassionate, personalized, and top-notch care every
+          step of the way.
+        </p>
+        <p>
+          Trust us with your health, and let us work together to achieve the
+          best possible outcomes for you and your loved ones.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>About Us</h4>
+        <p><a href="/#home">Home</a></p>
+        <p><a href="/#about">About Us</a></p>
+        <p><a href='/contact#terms'>Terms & Conditions</a></p>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <p><a href="/#home">Home</a></p>
+        <p><a href="/dental">Dental</a></p>
+        <p><a href='/'>Index</a></p>
+      </div>
+      <div class="footer__col">
+        <h4>Contact Us</h4>
+        <p>
+          <i class="ri-map-pin-2-fill"></i> FLAT No: 103, SOUQ AL ROLLA BUILDING, 
+          OPPOSITE K M TRADING
+          CENTRE, ROLLA, SHARJAH, P.O. BOX No: 65511
+          
+        </p>
+        <p><i class="ri-mail-fill"></i> marvellousmedicalcenter@gmail.com</p>
+        <p><i class="ri-phone-fill"></i> +971 50 566 2765</p>
+        <p><i class="ri-landline-fill"></i> 065614266</p>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <div class="footer__bar__content">
+        <p>Copyright © 2024 Marvellous Medical Center TR. All rights reserved.</p>
+        <div class="footer__socials">
+          <span><i class="ri-instagram-line"></i></span>
+          <span><i class="ri-facebook-fill"></i></span>
+          <span><i class="ri-heart-fill"></i></span>
+          <span><i class="ri-twitter-fill"></i></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block'; // Show the menu
+        } else {
+            menu.style.display = 'none'; // Hide the menu
+        }
+    }
+    
+    // Close the menu when clicking outside
+    window.onclick = function(event) {
+        const menu = document.getElementById('menu');
+        if (!event.target.matches('.menu-button') && menu.style.display === 'block') {
+            menu.style.display = 'none';
+        }
+    }
+    </script>
+    
+</html>
