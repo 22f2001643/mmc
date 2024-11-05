@@ -893,9 +893,11 @@ a:hover {
   <body>
     <header>
       <video autoplay muted loop>
-          <source src="static/Untitled design.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-      </video>
+    <source src="static/Untitled design.mp4" type="video/mp4">
+    <source src="static/Untitled design.webm" type="video/webm"> <!-- WebM fallback -->
+    Your browser does not support the video tag.
+</video>
+
   
       <nav class="section__container nav__container">
           <div class="logo">
